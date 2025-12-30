@@ -6,19 +6,19 @@ declare var DM_PROPERTIES: any;
  * inputType : "JSON",
  */
 interface Root {
-  status: string;
-  data: {
-    code: string;
-    name: string;
-    metadata: {
-      description: string;
-      primary_contact_person: string;
-      maintainer: string;
-      page: string;
-      website: string;
+    status: string;
+    data: {
+        code: string;
+        name: string;
+        metadata: {
+            description: string;
+            primary_contact_person: string;
+            maintainer: string;
+            page: string;
+            website: string;
+        };
+        taxonomy: string;
     };
-    taxonomy: string;
-  };
 }
 
 /*
@@ -26,17 +26,17 @@ interface Root {
  * outputType : "JSON",
  */
 interface OutputRoot {
-  status: string;
-  data: {
-    code: string;
-    name: string;
-    description: string;
-    primary_contact_person: string;
-    maintainer: string;
-    page: string;
-    website: string;
-  };
-  
+    status: string;
+    data: {
+        code: string;
+        name: string;
+        description: string;
+        primary_contact_person: string;
+        maintainer: string;
+        page: string;
+        website: string;
+    };
+
 }
 
 /**
@@ -45,16 +45,16 @@ interface OutputRoot {
  */
 export function mapFunction(input: Root): OutputRoot {
     return {
-    status: input.status,
-    data: {
-      code: "vision",
-      name: input.data.name,
-      description: input.data.metadata.description,
-      primary_contact_person: input.data.metadata.primary_contact_person,
-      maintainer: input.data.metadata.maintainer,
-      page: input.data.metadata.page,
-      website: input.data.metadata.website,
-    },
-    
+        status: input.status,
+        data: {
+            code: input.data.code,
+            name: input.data.name,
+            description: input.data.metadata.description,
+            primary_contact_person: input.data.metadata.primary_contact_person,
+            maintainer: input.data.metadata.maintainer,
+            page: input.data.metadata.page,
+            website: input.data.metadata.website,
+        },
+
     };
 }
